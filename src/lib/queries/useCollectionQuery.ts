@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { CollectionResponse } from "../../types/collectionResponse";
 import { api } from "../app/api.ts";
 
@@ -15,7 +15,7 @@ export const useCollectionQuery = () => {
             });
             return res.data;
         },
-        getNextPageParam: (lastPage, pages) => {
+        getNextPageParam: (_lastPage, pages) => {
             return pages.length + 1;
         },
     });

@@ -1,5 +1,5 @@
-import { useIntersection } from "react-use";
 import { FC, Fragment, useRef } from "react";
+import { useIntersection } from "react-use";
 import { useCollectionQuery } from "../../lib/queries/useCollectionQuery.ts";
 import "./artGrid.scss";
 import { ArtTile } from "./artTile.tsx";

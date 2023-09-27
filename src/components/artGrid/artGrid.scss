@@ -6,6 +6,7 @@
     }
 
     .artTile {
+        @apply bg-stone-800;
         @apply aspect-video relative overflow-hidden cursor-pointer;
         @apply will-change-transform transition-all duration-500 ease-in-out;
 
@@ -22,9 +23,13 @@
         animation-fill-mode: both;
 
         &_thumbnail {
-            @apply bg-stone-800;
+            @apply opacity-0;
             @apply absolute w-full h-[calc(100%+10px)] object-cover;
             @apply will-change-transform transform transition-all duration-500 ease-in-out;
+
+            &--loaded {
+                @apply opacity-100;
+            }
         }
 
         &_overlay {

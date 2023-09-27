@@ -1,6 +1,8 @@
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
+import classNames from "classnames";
 import { FC } from "react";
+import { useImageLoaded } from "../../lib/hooks/useImageLoaded.ts";
 import { useToggleFavoriteMutation } from "../../lib/mutations/useToggleFavoriteMutation.ts";
 import { useFavoriteQuery } from "../../lib/queries/useFavoriteQuery.ts";
 import { getThumbnailUrl } from "../../lib/util/getThumbnailUrl.ts";
@@ -11,13 +13,21 @@ interface ArtTileProps {
     fadeInDelayMs?: number;
 }
 export const ArtTile: FC<ArtTileProps> = ({ artObject, fadeInDelayMs }) => {
-    const { mutate: toggleFavorite, isLoading } = useToggleFavoriteMutation(artObject.id);
+    const { mutate: toggleFavorite } = useToggleFavoriteMutation(artObject.id);
     const { data: isFavorite } = useFavoriteQuery(artObject.id);
+
+    const imageUrl = getThumbnailUrl(artObject.webImage.url);
+    const imageLoaded = useImageLoaded(imageUrl);
 
     return (
         <div className="artTile" style={{ animationDelay: `${fadeInDelayMs || 0}ms` }}>
-            <img className="artTile_thumbnail" src={getThumbnailUrl(artObject.webImage.url)} alt="" />
-
+            <img
+                className={classNames("artTile_thumbnail", {
+                    "artTile_thumbnail--loaded": imageLoaded,
+                })}
+                src={imageUrl}
+                alt={artObject.title}
+            />
             <div className="artTile_overlay">
                 <div className="artTile_overlay_details">
                     <strong>{artObject.title}</strong>
