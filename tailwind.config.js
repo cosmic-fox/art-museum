@@ -16,7 +16,7 @@ export default {
     daisyui: {
         themes: [
             // Extending an existing theme: https://daisyui.com/docs/themes/#-7
-            "light", // first one will be the default theme
+            "forest", // first one will be the default theme
         ],
     },
 };

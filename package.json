@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "type": "module",
     "scripts": {
-        "dev": "concurrently 'yarn dev:thumbnailer' 'yarn dev:vite'", 
+        "dev": "concurrently 'yarn dev:thumbnailer' 'yarn dev:vite'",
         "dev:thumbnailer": "tsx watch src/thumbnailer.ts",
         "dev:vite": "vite",
         "build": "tsc && vite build",
@@ -69,6 +69,7 @@
         "daisyui": "^3.8.1",
         "express": "^4.18.2",
         "formik": "^2.4.5",
+        "jotai": "^2.4.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.16.0",

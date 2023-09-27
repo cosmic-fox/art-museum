@@ -11,11 +11,8 @@ export const useToggleFavoriteMutation = (artObjectId: ArtObject["id"]) => {
 
             // We could use .includes() here, but we need the index later to remove the item anyway
             const index = favorites.indexOf(artObjectId);
-            if (index !== -1) {
-                favorites.splice(index, 1);
-            } else {
-                favorites.push(artObjectId);
-            }
+            if (index !== -1) favorites.splice(index, 1);
+            else favorites.push(artObjectId);
 
             // Save the updated favourites array back to localStorage
             localStorage.setItem("favorites", JSON.stringify(favorites));

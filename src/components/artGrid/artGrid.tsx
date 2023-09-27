@@ -16,6 +16,11 @@ export const ArtGrid: FC<ArtGridProps> = ({}) => {
         fetchNextPage().catch((err) => console.log(err));
     }
 
+    if (!isLoading && !isFetching && !data?.pages[0].count) {
+        // Todo: better UI for no results
+        return <div>No results</div>;
+    }
+
     return (
         <>
             <div className="artGrid">
