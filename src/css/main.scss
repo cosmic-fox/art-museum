@@ -5,11 +5,5 @@
 @import "components";
 
 body {
-    @apply bg-gray-200;
-}
-
-#root {
-    // Probably worth keeping
-    @apply min-h-screen;
-    @apply flex flex-col items-stretch;
+    @apply bg-black;
 }

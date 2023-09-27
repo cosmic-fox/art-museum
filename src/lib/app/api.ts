@@ -5,7 +5,6 @@ export const api = Axios.create({
 });
 
 api.interceptors.request.use((config) => {
-    console.log("intercepting request");
     if (!config.params) config.params = {};
     config.params.key = import.meta.env.VITE_API_KEY;
     return config;
