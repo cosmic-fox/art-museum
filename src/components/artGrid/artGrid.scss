@@ -1,11 +1,28 @@
 .artGrid {
     @apply grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-1;
 
+    &_loadingIndicator {
+        @apply text-white flex justify-center items-center py-20;
+    }
+
     .artTile {
         @apply aspect-video relative overflow-hidden cursor-pointer;
         @apply will-change-transform transition-all duration-500 ease-in-out;
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        animation: fadeIn 0.5s ease-in-out;
+        animation-fill-mode: both;
+
         &_thumbnail {
+            @apply bg-stone-800;
             @apply absolute w-full h-[calc(100%+10px)] object-cover;
             @apply will-change-transform transform transition-all duration-500 ease-in-out;
         }
@@ -25,11 +42,6 @@
                 @apply shrink-0;
             }
         }
-
-        //&_toggleFavorite {
-        //    @apply absolute top-0 right-0;
-        //    @apply text-white;
-        //}
 
         // We could use hover: but that would just make an unreadable mess
         &:hover {

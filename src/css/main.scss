@@ -5,5 +5,7 @@
 @import "components";
 
 body {
-    @apply bg-black;
+    @apply min-h-screen;
+    @apply bg-stone-900;
+    @apply p-10;
 }

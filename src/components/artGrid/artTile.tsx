@@ -1,5 +1,5 @@
-import { StarIcon } from "@heroicons/react/24/solid";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 import { FC } from "react";
 import { useToggleFavoriteMutation } from "../../lib/mutations/useToggleFavoriteMutation.ts";
 import { useFavoriteQuery } from "../../lib/queries/useFavoriteQuery.ts";
@@ -8,13 +8,14 @@ import { ArtObject } from "../../types/collectionResponse";
 
 interface ArtTileProps {
     artObject: ArtObject;
+    fadeInDelayMs?: number;
 }
-export const ArtTile: FC<ArtTileProps> = ({ artObject }) => {
+export const ArtTile: FC<ArtTileProps> = ({ artObject, fadeInDelayMs }) => {
     const { mutate: toggleFavorite, isLoading } = useToggleFavoriteMutation(artObject.id);
     const { data: isFavorite } = useFavoriteQuery(artObject.id);
 
     return (
-        <div className="artTile">
+        <div className="artTile" style={{ animationDelay: `${fadeInDelayMs || 0}ms` }}>
             <img className="artTile_thumbnail" src={getThumbnailUrl(artObject.webImage.url)} alt="" />
 
             <div className="artTile_overlay">

@@ -1,11 +1,11 @@
 svg.icon {
     @apply h-6 w-6;
 
-    &--sm {
+    &-sm {
         @apply h-4 w-4;
     }
 
-    &--lg {
+    &-lg {
         @apply h-8 w-8;
     }
 }
