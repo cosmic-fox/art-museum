@@ -1,0 +1,60 @@
+.artModal {
+    @keyframes OpenModal {
+        0% {
+            @apply opacity-0;
+        }
+    }
+
+    @keyframes OpenModalContent {
+        0% {
+            scale: 0.9;
+            opacity: 0;
+        }
+    }
+
+    @apply fixed inset-0 z-20;
+    @apply bg-stone-900 bg-opacity-90 transition-all;
+    animation: OpenModal 0.5s ease;
+    animation-fill-mode: both;
+
+    &_content {
+        @apply transform transition-all ease-in-out;
+        @apply absolute inset-32;
+        @apply bg-stone-950 shadow-2xl rounded-xl overflow-hidden;
+        @apply flex;
+
+        animation: OpenModalContent 0.5s ease-out;
+        animation-fill-mode: both;
+
+        &_close {
+            @apply absolute top-2 right-2;
+        }
+
+        &_art {
+            @apply bg-stone-800 grow relative;
+
+            &_image {
+                @apply absolute  bg-no-repeat bg-center;
+
+                @apply inset-0 bg-cover; // Looks prettier
+                //@apply inset-10 bg-contain; // Makes more sense
+            }
+
+            &_loader {
+                @apply absolute bg-stone-950 bg-opacity-25 inset-0 flex justify-center items-center;
+            }
+        }
+
+        &_details {
+            @apply shrink-0 w-[400px] p-14 flex flex-col justify-between gap-4;
+
+            &_title {
+                @apply text-2xl font-semibold text-white;
+            }
+
+            &_author {
+                @apply text-sm font-medium mb-10;
+            }
+        }
+    }
+}
