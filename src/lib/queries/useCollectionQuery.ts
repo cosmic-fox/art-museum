@@ -26,7 +26,7 @@ export const useCollectionQuery = ({ keepPreviousData }: { keepPreviousData?: bo
             // Calculate how many items we've already seen (all pages combined)
             // If we have seen the amount of items that the response claims exist, we know we're done
             const totalItems = pages.reduce((acc, page) => acc + page.artObjects.length, 0);
-            if (totalItems > _lastPage.count) return pages.length + 1;
+            if (totalItems < _lastPage.count) return pages.length + 1;
         },
         refetchOnWindowFocus: false,
         keepPreviousData,
