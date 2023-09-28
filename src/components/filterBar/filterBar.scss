@@ -1,4 +1,13 @@
 .filterBar {
+    @apply bg-gradient-to-b from-stone-900 to-transparent sticky top-0 z-20;
     @apply flex justify-center items-center gap-4;
-    @apply mb-10;
+    @apply py-10;
+
+    // Allow clicking through the background..
+    @apply pointer-events-none;
+
+    & > * {
+        // .. But capture clicks on the children.
+        @apply pointer-events-auto;
+    }
 }
