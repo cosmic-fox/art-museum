@@ -46,7 +46,13 @@ export const ArtTile: FC<ArtTileProps> = ({ artObject, fadeInDelayMs }) => {
                     </div>
 
                     <div className="artTile_overlay_toggleFavorite">
-                        <button className="btn btn-square btn-ghost" onClick={() => toggleFavorite()}>
+                        <button
+                            className="btn btn-square btn-ghost"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFavorite();
+                            }}
+                        >
                             {isFavorite && <StarIcon className="icon" />}
                             {!isFavorite && <StarIconOutline className="icon" />}
                         </button>
