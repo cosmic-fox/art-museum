@@ -7,5 +7,5 @@
 body {
     @apply min-h-screen;
     @apply bg-stone-900;
-    @apply p-10;
+    @apply overflow-y-scroll;
 }

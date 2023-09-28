@@ -1,8 +1,8 @@
 import { useAtom } from "jotai";
 import { FC, useState } from "react";
 import { useDebounce } from "react-use";
-import { useCollectionQuery } from "../../lib/queries/useCollectionQuery.ts";
 import { filtersAtom } from "../../lib/atoms/filters.ts";
+import { useCollectionQuery } from "../../lib/queries/useCollectionQuery.ts";
 import "./filterBar.scss";
 
 interface FilterBarProps {}
@@ -11,7 +11,6 @@ export const FilterBar: FC<FilterBarProps> = ({}) => {
         keepPreviousData: true,
     });
     const facets = collectionData?.pages[0]?.facets;
-    console.log(facets);
 
     const [filters, setFilters] = useAtom(filtersAtom);
 
