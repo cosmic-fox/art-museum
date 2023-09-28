@@ -1,5 +1,5 @@
 import { FC, Fragment, useRef } from "react";
-import { useIntersection } from "react-use";
+import { useInViewport } from "../../lib/hooks/useInViewport.ts";
 import { useCollectionQuery } from "../../lib/queries/useCollectionQuery.ts";
 import "./artGrid.scss";
 import { ArtTile } from "./artTile.tsx";
@@ -8,12 +8,11 @@ interface ArtGridProps {}
 export const ArtGrid: FC<ArtGridProps> = ({}) => {
     const { data, isLoading, isFetching, hasNextPage, fetchNextPage } = useCollectionQuery();
 
-    // Todo: custom hook
     const loadMoreIntersector = useRef(null);
-    const intersection = useIntersection(loadMoreIntersector, { root: null });
+    const loaderInView = useInViewport(loadMoreIntersector);
 
-    if (!isLoading && intersection?.isIntersecting && hasNextPage && !isLoading && !isFetching) {
-        fetchNextPage().catch((err) => console.log(err));
+    if (!isLoading && loaderInView && hasNextPage && !isLoading && !isFetching) {
+        fetchNextPage();
     }
 
     if (!isLoading && !isFetching && !data?.pages[0].count) {
