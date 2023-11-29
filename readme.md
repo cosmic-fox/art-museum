@@ -50,7 +50,6 @@ Usage: You can go to `http://localhost:3333/https%3A%2F%2Flh3.googleusercontent.
 I also came up with some alternative ideas for the art viewing experience. This assignment made me really excited (which is not something I have often) and I came up with a lot of cool ideas. However, I had to keep in mind that I needed to work within the limits of the time given, so I decided to go with a more simple approach.
 - **Using ThreeJS-fiber or CSS to create an abstract 3D experience:**
     - The paintings float around in a 3D space. When you click on them, it zooms in, becomes larger, and an overlay in react explains more details about the painting. On hover the paintings move around and skew based on where your cursor is.
-    - I chose not to go with this approach as you do not use ThreeJS at Voys, so I didn't think it would show off relevant skill.
     - This could also have been done with CSS, however, it would take more time than I had available.
 - **CSS idea, realistic museum walkthrough experience:**
     - Render a 3d museum floor and wall using CSS. You can navigate left and right as if you are moving through the museum looking at a long wall/hallway. The floor could be skewed to really make it look like you're walking around.
